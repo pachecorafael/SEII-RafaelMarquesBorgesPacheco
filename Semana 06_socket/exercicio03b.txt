@@ -1,0 +1,29 @@
+# Rafael Pacheco - Sistemas Embarcados 2 / Sistemas Digitais
+# Engenharia Mecatrônica - UFU
+# 29/06/2022 - Semestre 2021-2
+
+1) qual o limite de bytes a serem enviados por pacotes TCP e UDP?
+2) como um arquivo grande pode ser transmitido via internet?
+3) qual a diferença entre as implementações TCP e UDP para esse problema?
+
+    Todos os dados transmitidos através da Internet são agrupados em pacotes TCP que,
+    que podem conter até 1460 bytes de dados. Além dos dados, cada pacote inclui 40 bytes adicionais,
+    contendo o endereço IP de origem, endereço IP de destino, porta de origem, porta de destino,
+    códigos de verificações, número do pacote, campo para inclusão de opções e assim por diante.
+
+    No total, temos 20 bytes para os headers do protocolo TCP e mais 20 bytes para os headers do protocolo IP,
+    totalizando 40 bytes de headers por pacote. Desta forma, temos 1460 bytes de dados em um pacote de 1500 bytes
+    e 536 bytes de dados em um pacote de 576 bytes
+
+    O protocolo TCP/IP permite o uso de pacotes com até 64 kbytes, mas normalmente são usados pacotes com até 1500 bytes,
+    que é o tamanho máximo de um frame Ethernet. Pacotes maiores podem ser transmitidos normalmente através da rede,
+    mas precisam ser fragmentados, ou seja, divididos em pedaços menores, com até 1500 bytes.
+
+    No UDP, as coisas são mais simples. Nele não existe abertura de conexão, os pacotes são transmitidos diretamente.
+    A estação solicita alguma informação e o servidor envia a resposta. Assim como no TCP, são usados pacotes de até 1500 bytes
+    (o protocolo permite o uso de pacotes com até 64 kbytes, mas, assim como no caso do TCP eles são raramente usados devido
+    ao limite de tamanho dos frames Ethernet), contendo os bits adicionais de verificação. A estação pode verificar a
+    integridade dos pacotes, mas não tem como perceber se algum pacote se perdeu, ou solicitar a retransmissão de um
+    pacote corrompido. Se um pacote se perde, fica por isso mesmo.
+
+    Fonte: https://www.hardware.com.br/dicas/revisao-tcpip
