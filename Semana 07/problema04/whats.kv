@@ -1,0 +1,75 @@
+# Rafael Pacheco - Sistemas Embasrcados 2 / Sistemas Digitais
+# Engenharia Mecatrônica - UFU
+# 10/07/2022 - Semestre 2021-2
+
+# Recriando a interface do WhatsApp com Kivy - até 38'
+
+BoxLayout:
+    canvas:
+        Color:
+            rgba = 0.92,0.92,0.92,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    orientation: 'vertical'
+    AppBar:
+    Menu:
+    Widget:
+
+<AppBar@BoxLayout>:
+    padding: '6dp'
+    canvas:
+        Color:
+            rgba: 0,0.3,0.13,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    size_hint_y: None
+    height: '50dp'
+    Label:
+        text: 'WhatsApp Rafael Pacheco'
+        bold: True
+        font_size: '20dp'
+        halign: 'left'
+        text_size: self.size
+        valign: 'center'
+        padding_x: '10dp'
+    Icon:
+        background_normal:'lupa.png'
+    Icon:
+        background_normal:'pontos.png'
+
+<Menu@BoxLayout>:
+    canvas:
+        Color:
+            rgba: 0,0.3,0.13,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    size_hint_y: None
+    height:'50dp'
+    Icon:
+        background_normal:'camera.png'
+    MenuButton:
+        text:'CHATS'
+
+    MenuButton:
+        text:'STATUS'
+
+    MenuButton:
+        text:'CALLS'
+
+<MenuButton@Button>:
+    canvas:
+        Color:
+            rgba: 1,1,1,1
+        Line:
+            width:2
+            points:
+    background_color: 0,0,0,0
+    bold:True
+
+<Icon@Button>:
+    size_hint_x: None
+    width = self.height
+    border: 0,0,0,0
