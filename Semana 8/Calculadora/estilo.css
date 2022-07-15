@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: 'Montserrat', sans-serif; /*declaração da fonte*/
+    font-weight: 500;
+    font-size: 22px;
+}
+body {
+    display: flex; /*centralizar os itens dentro da tela*/
+    justify-content: center; /*centraliza*/
+    align-items: center;
+    height: 100vh; /*porcentagem da tela vh=viewheight*/
+    background: #41002d;
+}
+input {
+    margin: 2px; /*estiliza os botoes -> bota margem, tira borda e coloca raio de quina*/
+    border: none;
+    border-radius: 3px;
+}
+input[type=text] { /*estilizando o botão de texto de entrada*/
+    width: calc(100% - 4px);
+    height: 40px;
+}
+input[type=button] {
+    width: 100px;
+    height: 50px;
+    transition: ease 0.2s; /*transição entre o modo parado e o ativado (muda a cor)*/
+    cursor: pointer; /*o mouse fica no estilo da maozinha*/
+}
+div#calculadora {
+    box-shadow: 0 0 20px black; /*horiz. vertical em volta*/
+}
+div#calculadora div {
+    display: flex; /*flexibiliza todas as divs que estão dentro da div pai*/
+}
+div#calculadora div input:nth-child(4) {
+    background: #b4b4b4; /*todo quarto input que estiver dentro das div dentro da calculadora*/
+}
+div#quarta input:nth-child(1) {/*pega a primeiro input da div quarta (C)*/
+    background: #f11a1a;
+}
+div#quarta input:nth-child(1), div#calculadora {/*pega a primeiro input da div quarta (C) e a div calculadora*/
+    border-bottom-left-radius: 35px; /*altera somente a borda inferior esquerda*/
+}
+div#quarta input:nth-child(3) {
+    background: #1a4cf1;
+}
+div#quarta input:nth-child(4), div#calculadora {
+    border-bottom-right-radius: 35px;
+}
+input[type=button]:hover { /*hover é só quando você passa o mouse em cima*/
+    filter: brightness(50%); /*filtra o brilho*/
+}
+input[type=button]:active { /*quando o botão está selecionado*/
+    transform: scale(0.9); /*botão aumenta ou diminui quando apertado*/
+}
