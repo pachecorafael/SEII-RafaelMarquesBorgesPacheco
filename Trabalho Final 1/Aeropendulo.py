@@ -3,7 +3,7 @@ import pygame
 #pygame.font.init()
 #pygame.mixer.init()
 
-WIDTH, HEIGHT = 900,500 #Largura e altura da janela
+WIDTH, HEIGHT = 500,700 #Largura e altura da janela
 WIN = pygame.display.set_mode((WIDTH,HEIGHT)) #definição de uma janela -surface - window
 pygame.display.set_caption("Aeropêndulo! ")
 
@@ -12,7 +12,7 @@ PRETO = (0,0,0)
 
 FPS = 60 #FRAMES PER SECONDS
 
-AEROPENDULO_LARGURA, AEROPENDULO_ALTURA = 100,200
+AEROPENDULO_LARGURA, AEROPENDULO_ALTURA = 200,500
 
 AEROPENDULO_IMAGE = pygame.image.load('aeropendulo.png') #(os.path.join('',''))
 AEROPENDULO = pygame.transform.rotate(
@@ -27,7 +27,7 @@ def draw_window(aeropendulo):
     pygame.display.update()
 
 def main():
-    aeropendulo = pygame.Rect(400,100,AEROPENDULO_LARGURA,AEROPENDULO_ALTURA)
+    aeropendulo = pygame.Rect(120,20,AEROPENDULO_LARGURA,AEROPENDULO_ALTURA)
     clock = pygame.time.Clock()  # controla a velocidade do while loop
     run = True
     while run:

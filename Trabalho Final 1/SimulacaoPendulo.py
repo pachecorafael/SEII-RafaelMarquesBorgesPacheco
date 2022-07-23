@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def f(t, x, u):
-#State vector
-#x = [x2 x1]^T
+    #State vector
+    #x = [x2 x1]^T
     x1 = x[0]
     x2 = x[1]
     l1 =.75
@@ -16,8 +16,8 @@ def f(t, x, u):
 
 # Runge Kutta de 4ª órdem
 def rk4(tk, h, xk, uk):
-#xk = xk.reshape([2,1])
-#uk = uk.reshape([1,1])
+    #xk = xk.reshape([2,1])
+    #uk = uk.reshape([1,1])
     k1 = f(tk , xk , uk)
     k2 = f(tk + h/2.0, xk + h*k1/2.0, uk)
     k3 = f(tk + h/2.0, xk + h*k2/2.0, uk)
@@ -25,10 +25,13 @@ def rk4(tk, h, xk, uk):
     xkp1 = xk + (h/6.0)*(k1 + 2*k2 + 2*k3 + k4)
     return xkp1 #.reshape([2,])
 
+
 # PARÂMETROS DE SIMULAÇÃO
 h = 1e-4 # Sample time
-t = np.arange(0,5,h) # vetor tempo 
+t = np.arange(0,5,h) # vetor tempo
 tam = len(t)
+
+
 # Vetor de estados
 x = np.zeros([2, tam],dtype='float64')
 #x[:,0] = np.array([30*np.pi/180.,0]) # Condição Inicial
@@ -39,13 +42,15 @@ l2 = 1.2
 J = 1e-2
 p = .85*9.81
 u_eq = np.sin(20*np.pi/180)*p*l1/l2
+
 # Vetor de entrada
 u = u_eq*np.ones([tam],dtype='float64')
 
 # Execução da simulação
 for k in range(tam-1):
-# u(k) será calculado aqui na simulação
-# Atualização do estado
+    # u(k) será calculado aqui na simulação
+    u
+    # Atualização do estado
     x[:,k+1] = rk4(t[k], h, x[:,k], u[k])
 
 plt.subplot(2, 1, 1)
